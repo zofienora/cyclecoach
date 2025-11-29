@@ -18,6 +18,12 @@ module.exports = {
         sans: ["var(--font-dm-sans)"],
         heading: ["var(--font-sora)"],
       },
+      colors: {
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        alert: 'var(--color-alert)',
+        surface: 'var(--color-surface)',
+      },
     },
   },
   plugins: [],
