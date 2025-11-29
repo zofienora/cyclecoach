@@ -15,7 +15,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-poppins)'],
+        sans: ["var(--font-dm-sans)"],
+        heading: ["var(--font-sora)"],
       },
     },
   },
