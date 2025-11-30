@@ -7,9 +7,6 @@ export default function Header() {
         <h1 className="text-lg font-heading text-foreground">
           Hello, Sophie 👋
         </h1>
-        <p className="text-sm text-muted-foreground">
-          Track your cycle with ease
-        </p>
       </div>
 
       <button className="bg-alert text-white text-sm px-4 py-2 rounded-full font-semibold shadow">
