@@ -4,9 +4,12 @@ export default function Header() {
   return (
     <header className="flex justify-between items-center px-4 py-6">
       <div>
-        <h1 className="text-lg font-heading text-foreground">
-          Hello, Sophie 👋
+        <h1 className="text-2xl font-heading text-foreground">
+            CycleCoach
         </h1>
+        <h2 className="text-lg font-heading text-foreground">
+          Hello, Sophie 👋
+        </h2>
       </div>
 
       <button className="bg-alert text-white text-sm px-4 py-2 rounded-full font-semibold shadow">
