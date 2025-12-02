@@ -33,4 +33,17 @@ body {
     font-family: var(--font-dm-sans);
 }
 
+@layer utilities {
+  .text-foreground {
+    color: var(--foreground);
+  }
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+  /* add more semantic colors here as you need them */
+}
+
 @tailwind utilities;
