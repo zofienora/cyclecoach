@@ -1,16 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-
-module.exports = {
+export default {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -19,12 +11,14 @@ module.exports = {
         heading: ["var(--font-sora)"],
       },
       colors: {
-        primary: 'var(--color-primary)',
-        secondary: 'var(--color-secondary)',
-        alert: 'var(--color-alert)',
-        surface: 'var(--color-surface)',
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        alert: "var(--color-alert)",
+        surface: "var(--color-surface)",
       },
     },
   },
   plugins: [],
-}
+};
