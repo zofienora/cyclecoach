@@ -34,16 +34,23 @@ body {
 }
 
 @layer utilities {
+  /* text colors */
   .text-foreground {
     color: var(--foreground);
+  }
+  .text-primary {
+    color: var(--color-primary);
   }
   .text-secondary {
     color: var(--color-secondary);
   }
-  .bg-surface {
-    background-color: var(--color-surface);
+  .text-accent {
+    color: var(--color-accent);
   }
-  /* add more semantic colors here as you need them */
+  .text-alert {
+    color: var(--color-alert);
+  }
+
 }
 
 @tailwind utilities;
