@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="flex justify-between items-center px-4 py-6">
       <div>
-        <h1 className="text-2xl font-heading text-foreground">
+        <h1 className="text-[48px] font-heading text-secondary">
             CycleCoach
         </h1>
         <h2 className="text-lg font-heading text-foreground">
