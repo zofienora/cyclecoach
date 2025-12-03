@@ -7,13 +7,13 @@ export default function Header() {
         <h1 className="text-7xl font-bold border font-heading text-secondary text-centerpy-16 py-8">
           CycleCoach
         </h1>
-        <h2 className="font-heading text-foreground text-center text-3xl pt-8 pb-2
+        <h2 className="font-heading text-foreground text-center text-4xl pt-8 pb-2
 ">
           Hello, Sophie 👋
         </h2>
       </div>
 
-      <button className="bg-alert text-white text-sm px-4 py-2 rounded-full font-semibold shadow">
+      <button className="bg-alert text-white text-m px-4 py-2 rounded-full font-semibold shadow">
         Log Period
       </button>
     </header>
