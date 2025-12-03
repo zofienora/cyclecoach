@@ -13,7 +13,7 @@ export default function Header() {
         </h2>
       </div>
 
-      <button className="bg-alert text-white text-sm px-4 py-2 rounded-full font-semibold shadow border-2">
+      <button className="bg-alert text-white text-sm px-4 py-2 rounded-full font-semibold shadow">
         Log Period
       </button>
     </header>
