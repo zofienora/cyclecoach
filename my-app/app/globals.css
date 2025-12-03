@@ -1,4 +1,4 @@
-@import "tailwindcss/preflight";
+@import "tailwindcss";
 
 
 :root {
@@ -13,7 +13,7 @@
     --background: #ffffff;
     --foreground: #171717;
 
-    /* Fonts (from next/font/google) */
+    /* Fonts */
     --font-sora: 'Sora', sans-serif;
     --font-dm-sans: 'DM Sans', sans-serif;
 }
@@ -52,5 +52,3 @@ body {
   }
 
 }
-
-@tailwind utilities;
