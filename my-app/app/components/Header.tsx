@@ -2,12 +2,12 @@
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center px-4 py-6">
-      <div>
-        <h1 className="text-[48px] font-heading text-secondary">
-            CycleCoach
+    <header className="flex flex-col items-center px-4 py-6 mx-auto gap-4">
+      <div className="flex flex-col items-center">
+        <h1 className="text-[48px] font-heading text-secondary text-center">
+          CycleCoach
         </h1>
-        <h2 className="text-lg font-heading text-foreground">
+        <h2 className="text-lg font-heading text-foreground text-center">
           Hello, Sophie 👋
         </h2>
       </div>
