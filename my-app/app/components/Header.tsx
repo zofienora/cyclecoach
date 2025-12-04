@@ -17,13 +17,13 @@ export default function Header() {
       </button>
 
       {/* Static cycle position indicator */}
-      <div className="mt-10 flex flex-col items-center gap-3">
+      <div className="mt-10 flex flex-col items-center gap-3 pt-24">
         {/* Outer ring */}
-        <div className="w-40 h-40 rounded-full border-14 border-alert bg-surface" />
+        <div className="w-60 h-60 rounded-full border-14 border-alert bg-surface" />
         {/* Arrow + label */}
         <div className="flex flex-col items-center text-sm text-foreground">
           <span className="-mb-1">↑</span>
-          <span>you are here</span>
+          <span className="text-sm font-bold text-foreground pt-2 pb-4">you are here</span>
         </div>
       </div>
     </header>
