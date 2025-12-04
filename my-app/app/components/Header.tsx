@@ -19,7 +19,7 @@ export default function Header() {
       {/* Static cycle position indicator */}
       <div className="mt-10 flex flex-col items-center gap-3">
         {/* Outer ring */}
-        <div className="w-40 h-40 rounded-full border-[14px] border-alert bg-surface" />
+        <div className="w-40 h-40 rounded-full border-14 border-alert bg-surface" />
         {/* Arrow + label */}
         <div className="flex flex-col items-center text-sm text-foreground">
           <span className="-mb-1">↑</span>

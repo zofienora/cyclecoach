@@ -67,4 +67,7 @@ body {
   .bg-surface {
     background-color: var(--color-surface);
   }
+
+  /* border colors */
+  .border-alert { border-color: var(--color-alert); }
 }
