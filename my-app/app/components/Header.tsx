@@ -2,7 +2,7 @@
 
 export default function Header() {
   return (
-    <header className="flex flex-col items-center px-4 pt-4 mx-auto gap-4">
+    <header className="flex flex-col items-center px-4 pt-4 mx-auto gap-4 h-screen w-full">
       <div className="flex flex-col items-center">
         <h1 className="text-7xl font-bold font-heading text-secondary text-center py-8">
           CycleCoach
