@@ -10,18 +10,20 @@ export default function PhaseTracker() {
     <h3 className="text-lg font-sans text-foreground text-center py-8">
       calm movement, nourishing food, sleep and relaxation
     </h3>
-    <motion.div
-      className="w-12 h-12 rounded-full bg-secondary absolute"
-      animate={{
-        x: [0, 40, -30, 20, 0],
-        y: [0, -30, 60, -10, 0],
-      }}
-      transition={{
-        repeat: Infinity,
-        duration: 6,
-        ease: 'easeInOut',
-      }}
-    />
+    <div className="w-[90%] h-[80%]">
+        <motion.div
+        className="w-12 h-12 rounded-full bg-secondary absolute"
+        animate={{
+            x: [100, 40, -30, 20, 0],
+            y: [0, -30, 60, -10, 0],
+        }}
+        transition={{
+            repeat: Infinity,
+            duration: 10,
+            ease: 'linear',
+        }}
+        />
+    </div>
    </section>
   );
 }
