@@ -41,8 +41,8 @@ export default function PhaseTracker() {
       <motion.div
         className="w-8 h-8 rounded-full bg-accent absolute"
         animate={{
-          x: [0, 40, -30, 20, -10, 0],
-          y: [0, -10, 10, -5, 5, 0],
+          x: [0, 400, -300, 200, -100, 0],
+          y: [0, -100, 100, -50, 50, 0],
         }}
         transition={{
           repeat: Infinity,
