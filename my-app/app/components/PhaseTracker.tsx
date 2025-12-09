@@ -27,12 +27,12 @@ export default function PhaseTracker() {
       <motion.div
         className="w-10 h-10 rounded-full bg-primary absolute"
         animate={{
-          x: [0, 30, -20, 15, -10, 0],
-          y: [0, -20, 20, -15, 10, 0],
+          x: [0, 300, -200, 150, -100, 0],
+          y: [0, -200, 200, -150, 100, 0],
         }}
         transition={{
           repeat: Infinity,
-          duration: 10,
+          duration: 100,
           ease: 'linear',
         }}
       />
