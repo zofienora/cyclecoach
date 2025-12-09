@@ -9,9 +9,18 @@ export default function PhaseTracker() {
     <h3 className="text-lg font-sans text-foreground text-center py-8">
       calm movement, nourishing food, sleep and relaxation
     </h3>
-    <div>
-        
-    </div>
+    <motion.div
+      className="w-12 h-12 rounded-full bg-secondary absolute"
+      animate={{
+        x: [0, 40, -30, 20, 0],
+        y: [0, -30, 60, -10, 0],
+      }}
+      transition={{
+        repeat: Infinity,
+        duration: 6,
+        ease: 'easeInOut',
+      }}
+    />
    </section>
   );
 }
