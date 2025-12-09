@@ -10,19 +10,46 @@ export default function PhaseTracker() {
     <h3 className="text-lg font-sans text-foreground text-center py-8">
       calm movement, nourishing food, sleep and relaxation
     </h3>
-    <div className="w-[90%] h-[80%]">
+    <div className="w-[90%] h-[80%] mx-auto">
         <motion.div
-        className="w-12 h-12 rounded-full bg-secondary absolute"
+            className="w-50 h-50 rounded-full bg-secondary absolute"
+            animate={{
+            x: [10, 60, -40, 30, -20, 0],
+            y: [0, -30, 50, -10, 40, 0],
+            }}
+            transition={{
+            repeat: Infinity,
+            duration: 12,
+            ease: 'linear',
+            }}
+      />
+      {/* Center circle */}
+      <motion.div
+        className="w-10 h-10 rounded-full bg-primary absolute"
         animate={{
-            x: [100, 40, -30, 20, 0],
-            y: [0, -30, 60, -10, 0],
+          x: [0, 30, -20, 15, -10, 0],
+          y: [0, -20, 20, -15, 10, 0],
         }}
         transition={{
-            repeat: Infinity,
-            duration: 10,
-            ease: 'linear',
+          repeat: Infinity,
+          duration: 10,
+          ease: 'linear',
         }}
-        />
+      />
+
+      {/* Bottom zone circle */}
+      <motion.div
+        className="w-8 h-8 rounded-full bg-accent absolute"
+        animate={{
+          x: [0, 40, -30, 20, -10, 0],
+          y: [0, -10, 10, -5, 5, 0],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 14,
+          ease: 'linear',
+        }}
+      />
     </div>
    </section>
   );
