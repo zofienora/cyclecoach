@@ -1,5 +1,6 @@
 "use client";
 import * as motion from "motion/react-client"
+import { useRef, useState, useEffect } from 'react';
 
 export default function PhaseTracker() {
     const containerRef = useRef(null);
