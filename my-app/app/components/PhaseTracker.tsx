@@ -4,7 +4,10 @@ import { useRef, useState, useEffect } from 'react';
 
 export default function PhaseTracker() {
     const containerRef = useRef(null);
-    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    const [dimensions, setDimensions] = useState({
+        width: 375,
+        height: 667,
+      });
 
     useEffect(() => {
     if (containerRef.current) {
