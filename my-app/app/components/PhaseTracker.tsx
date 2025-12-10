@@ -3,7 +3,7 @@ import * as motion from "motion/react-client"
 import { useRef, useState, useEffect } from 'react';
 
 export default function PhaseTracker() {
-    const containerRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const [dimensions, setDimensions] = useState({
         width: 375,
         height: 667,
@@ -23,7 +23,7 @@ export default function PhaseTracker() {
     <h3 className="text-lg font-sans text-foreground text-center py-8">
       calm movement, nourishing food, sleep and relaxation
     </h3>
-    <div className="w-[90%] h-[80%] mx-auto border relative">
+    <div ref={containerRef} className="w-[90%] h-[80%] mx-auto border relative">
         <motion.div
             className="w-50 h-50 rounded-full bg-secondary absolute"
             animate={{
