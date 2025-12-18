@@ -8,6 +8,11 @@ export default function Suggestions() {
     <h2 className="text-2xl font-bold font-heading text-foreground text-center py-8">
       Explore
     </h2>
+    <div className="">
+        <div className=""></div>
+        <div className=""></div>
+        <div className=""></div>
+    </div>
 
    </section>
   );
