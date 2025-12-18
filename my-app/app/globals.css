@@ -71,3 +71,7 @@ body {
   /* border colors */
   .border-alert { border-color: var(--color-alert); }
 }
+.border-primary { border-color: var(--color-primary); }
+.border-secondary { border-color: var(--color-secondary); }
+.border-accent { border-color: var(--color-accent); }
+.border-surface { border-color: var(--color-surface); }

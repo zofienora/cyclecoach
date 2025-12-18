@@ -9,9 +9,12 @@ export default function Suggestions() {
       Explore
     </h2>
     <div className="">
-        <div className=""></div>
-        <div className=""></div>
-        <div className=""></div>
+        <div className="bg-primary rounded-lg p-4">
+
+
+        </div>
+        <div className="border-2 border-secondary rounded-lg p-4"></div>
+        <div className="border-2 border-alert rounded-lg p-4"></div>
     </div>
 
    </section>
