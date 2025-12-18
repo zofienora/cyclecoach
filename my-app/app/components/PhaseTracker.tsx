@@ -24,21 +24,26 @@ export default function PhaseTracker() {
       calm movement, nourishing food, sleep and relaxation
     </h3>
     <div ref={containerRef} className="w-[90%] h-[80%] mx-auto border relative">
-        <motion.div
-            className="w-50 h-50 rounded-full bg-secondary absolute"
-            animate={{
-                x: [0, dimensions.width * 0.3, 0],
-                y: [0, dimensions.height * 0.5, 0],
-              }}
-            transition={{
-            repeat: Infinity,
-            duration: 12,
-            ease: 'linear',
-            }}
+      {/* Top circle */}
+      <motion.div
+        className="w-50 h-50 rounded-full bg-secondary absolute"
+        initial={{
+          x: [dimensions.width * 0.1, dimensions.width * 0.4, dimensions.width * 0.1],
+          y: [dimensions.height * 0.1, dimensions.height * 0.4, dimensions.height * 0.1],
+        }}
+        animate={{
+            x: [0, dimensions.width * 0.4, 0],
+            y: [0, dimensions.height * 0.5, 0],
+          }}
+        transition={{
+        repeat: Infinity,
+        duration: 100,
+        ease: 'linear',
+        }}
       />
       {/* Center circle */}
       <motion.div
-        className="w-10 h-10 rounded-full bg-primary absolute"
+        className="w-50 h-50 rounded-full bg-primary absolute"
         animate={{
             x: [0, dimensions.width * 0.3, 0],
             y: [0, dimensions.height * 0.5, 0],
@@ -52,14 +57,14 @@ export default function PhaseTracker() {
 
       {/* Bottom zone circle */}
       <motion.div
-        className="w-8 h-8 rounded-full bg-accent absolute"
+        className="w-50 h-50 rounded-full bg-accent absolute"
         animate={{
             x: [0, dimensions.width * 0.3, 0],
             y: [0, dimensions.height * 0.5, 0],
           }}
         transition={{
           repeat: Infinity,
-          duration: 14,
+          duration: 100,
           ease: 'linear',
         }}
       />
