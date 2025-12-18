@@ -27,14 +27,11 @@ export default function PhaseTracker() {
       {/* Top circle */}
       <motion.div
         className="w-50 h-50 rounded-full bg-secondary absolute"
-        initial={{
-          x: [dimensions.width * 0.1, dimensions.width * 0.4, dimensions.width * 0.1],
-          y: [dimensions.height * 0.1, dimensions.height * 0.4, dimensions.height * 0.1],
-        }}
+        initial={{ x: dimensions.width * 0.1, y: dimensions.height * 0.1 }}
         animate={{
-            x: [0, dimensions.width * 0.4, 0],
-            y: [0, dimensions.height * 0.5, 0],
-          }}
+          x: [dimensions.width * 0.1, dimensions.width * 0.4, dimensions.width * 0.1],
+          y: [dimensions.height * 0.1, dimensions.height * 0.5, dimensions.height * 0.1],
+        }}
         transition={{
         repeat: Infinity,
         duration: 100,
@@ -44,10 +41,11 @@ export default function PhaseTracker() {
       {/* Center circle */}
       <motion.div
         className="w-50 h-50 rounded-full bg-primary absolute"
+        initial={{ x: dimensions.width * 0.3, y: dimensions.height * 0.3 }}
         animate={{
-            x: [0, dimensions.width * 0.3, 0],
-            y: [0, dimensions.height * 0.5, 0],
-          }}
+          x: [dimensions.width * 0.3, dimensions.width * 0.6, dimensions.width * 0.3],
+          y: [dimensions.height * 0.3, dimensions.height * 0.6, dimensions.height * 0.3],
+        }}
         transition={{
           repeat: Infinity,
           duration: 100,
@@ -58,10 +56,11 @@ export default function PhaseTracker() {
       {/* Bottom zone circle */}
       <motion.div
         className="w-50 h-50 rounded-full bg-accent absolute"
+        initial={{ x: dimensions.width * 0.6, y: dimensions.height * 0.2 }}
         animate={{
-            x: [0, dimensions.width * 0.3, 0],
-            y: [0, dimensions.height * 0.5, 0],
-          }}
+          x: [dimensions.width * 0.6, dimensions.width * 0.2, dimensions.width * 0.6],
+          y: [dimensions.height * 0.2, dimensions.height * 0.7, dimensions.height * 0.2],
+        }}
         transition={{
           repeat: Infinity,
           duration: 100,
