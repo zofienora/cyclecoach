@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import PhaseTracker from "./components/PhaseTracker";
+import Suggestions from "./components/Suggestions";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <Header />
       <PhaseTracker />
       {/* More components like PhaseTracker will come next */}
+      <Suggestions />
     </main>
   );
 }
