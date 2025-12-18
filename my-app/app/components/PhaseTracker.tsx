@@ -16,14 +16,14 @@ export default function PhaseTracker() {
     }
     }, []);
   return (
-   <section className="border-2 border-alert rounded-lg p-4 h-screen">
+   <section className="rounded-lg p-4 h-screen">
     <h2 className="text-2xl font-bold font-heading text-foreground text-center py-8">
       Today in your luteal phase
     </h2>
     <h3 className="text-lg font-sans text-foreground text-center py-8">
       calm movement, nourishing food, sleep and relaxation
     </h3>
-    <div ref={containerRef} className="w-[90%] h-[80%] mx-auto border relative">
+    <div ref={containerRef} className="w-[90%] h-[80%] mx-auto relative">
       {/* Top circle */}
       <motion.div
         className="w-50 h-50 rounded-full bg-secondary absolute"
