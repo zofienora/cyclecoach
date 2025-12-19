@@ -12,8 +12,13 @@ export default function Suggestions() {
         <div className="bg-primary rounded-lg p-10 mt-5 mb-5">
             <p className="text-lg font-bold font-heading text-white uppercase text-center pt-10 pb-10">Upcoming Phase</p>
         </div>
-        <div className="border-2 border-secondary rounded-lg p-10 mt-5 mb-5"></div>
-        <div className="border-2 border-alert rounded-lg p-10 mt-5 mb-5"></div>
+        <div className="border-2 border-secondary rounded-lg p-10 mt-5 mb-5">
+            <p className="text-lg font-sans text-center pt-10 pb-10">Text</p>
+
+        </div>
+        <div className="border-2 border-alert rounded-lg p-10 mt-5 mb-5">
+            <p className="text-lg font-sans text-center pt-10 pb-10">Text</p>
+        </div>
     </div>
 
    </section>
