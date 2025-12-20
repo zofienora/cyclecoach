@@ -1,6 +1,9 @@
 "use client";
+import { useUser } from "../context/UserContext";
 
 export default function Header() {
+  const { userData, logPeriod } = useUser();
+
   return (
     <header className="flex flex-col items-center px-4 pt-4 mx-auto gap-4 h-screen w-full">
       <div className="flex flex-col items-center">
