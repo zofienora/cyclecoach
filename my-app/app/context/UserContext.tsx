@@ -71,14 +71,26 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   };
 
   const logPeriod = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
     if (userData) {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
+      // Update existing data
       setUserDataState({
         ...userData,
         cycleData: {
           ...userData.cycleData,
           lastPeriodStart: today.toISOString().split('T')[0],
+        },
+      });
+    } else {
+      // Initialize with default data if none exists
+      setUserDataState({
+        name: "",
+        cycleData: {
+          lastPeriodStart: today.toISOString().split('T')[0],
+          cycleLength: 28,
+          periodLength: 5,
         },
       });
     }
