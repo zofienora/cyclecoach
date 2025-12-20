@@ -1,8 +1,17 @@
 "use client";
 import { useUser } from "../context/UserContext";
+import { useState } from "react";
+
 
 export default function Header() {
   const { userData, logPeriod, updateUserName } = useUser();
+  const [lastUpdate, setLastUpdate] = useState<string>("");
+
+  const handleLogPeriod = () => {
+    console.log("Button clicked!");
+    logPeriod();
+    setLastUpdate(new Date().toLocaleTimeString());
+  };
 
   return (
     <header className="flex flex-col items-center px-4 pt-4 mx-auto gap-4 h-screen w-full">
@@ -27,14 +36,15 @@ export default function Header() {
       </div>
 
       <button 
-        onClick={() => {
-          console.log("Button clicked!");
-          logPeriod();
-        }}
+        onClick={handleLogPeriod}
         className="bg-alert text-white text-sm px-4 py-2 rounded-full font-semibold shadow"
       >
         Log Period
       </button>
+      
+      {lastUpdate && (
+        <p className="text-xs text-green-600">Last updated: {lastUpdate}</p>
+      )}
 
       {/* Debug: Show current data */}
       {userData && (
