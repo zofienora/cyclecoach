@@ -27,7 +27,10 @@ export default function Header() {
       </div>
 
       <button 
-        onClick={logPeriod}
+        onClick={() => {
+          console.log("Button clicked!");
+          logPeriod();
+        }}
         className="bg-alert text-white text-sm px-4 py-2 rounded-full font-semibold shadow"
       >
         Log Period

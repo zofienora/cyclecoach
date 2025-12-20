@@ -71,28 +71,36 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   };
 
   const logPeriod = () => {
+    console.log("logPeriod called!");
+    console.log("Current userData:", userData);
+  
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
+    const todayString = today.toISOString().split('T')[0];
+
     if (userData) {
       // Update existing data
-      setUserDataState({
+        const newData = {
         ...userData,
         cycleData: {
-          ...userData.cycleData,
-          lastPeriodStart: today.toISOString().split('T')[0],
+            ...userData.cycleData,
+            lastPeriodStart: todayString,
         },
-      });
+        };
+        console.log("Updating with new data:", newData);
+        setUserDataState(newData);
     } else {
       // Initialize with default data if none exists
-      setUserDataState({
+      const newData = {
         name: "",
         cycleData: {
-          lastPeriodStart: today.toISOString().split('T')[0],
+          lastPeriodStart: todayString,
           cycleLength: 28,
           periodLength: 5,
         },
-      });
+      };
+      console.log("Initializing with new data:", newData);
+      setUserDataState(newData);
     }
   };
 
