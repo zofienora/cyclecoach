@@ -1,14 +1,15 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { UserData, CycleData } from "../lib/userData";
+import { UserData } from "../lib/userData";
 
 interface UserContextType {
   userData: UserData | null;
   setUserData: (data: UserData) => void;
-  updateCycleData: (cycleData: CycleData) => void;
+  updateDayInCycle: (day: number) => void;
+  updateCycleLength: (length: number) => void;
   updateUserName: (name: string) => void;
-  logPeriod: () => void; // Updates lastPeriodStart to today
+  resetToDayOne: () => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -48,9 +49,28 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     setUserDataState(data);
   };
 
-  const updateCycleData = (cycleData: CycleData) => {
+  const updateDayInCycle = (day: number) => {
     if (userData) {
-      setUserDataState({ ...userData, cycleData });
+      setUserDataState({ ...userData, currentDayInCycle: day });
+    } else {
+      // Initialize with default data if none exists
+      setUserDataState({
+        name: "",
+        currentDayInCycle: day,
+        cycleLength: 28,
+      });
+    }
+  };
+
+  const updateCycleLength = (length: number) => {
+    if (userData) {
+      setUserDataState({ ...userData, cycleLength: length });
+    } else {
+      setUserDataState({
+        name: "",
+        currentDayInCycle: 1,
+        cycleLength: length,
+      });
     }
   };
 
@@ -61,55 +81,26 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       // Initialize with just name if no data exists
       setUserDataState({
         name,
-        cycleData: {
-          lastPeriodStart: new Date().toISOString().split('T')[0],
-          cycleLength: 28,
-          periodLength: 5,
-        },
+        currentDayInCycle: 1,
+        cycleLength: 28,
       });
     }
   };
 
-  const logPeriod = () => {
-    console.log("logPeriod called!");
-    console.log("Current userData:", userData);
-  
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    const todayString = `${year}-${month}-${day}`;
-
+  const resetToDayOne = () => {
     if (userData) {
-      // Update existing data
-        const newData = {
-        ...userData,
-        cycleData: {
-            ...userData.cycleData,
-            lastPeriodStart: todayString,
-        },
-        };
-        console.log("Updating with new data:", newData);
-        setUserDataState(newData);
+      setUserDataState({ ...userData, currentDayInCycle: 1 });
     } else {
-      // Initialize with default data if none exists
-      const newData = {
+      setUserDataState({
         name: "",
-        cycleData: {
-          lastPeriodStart: todayString,
-          cycleLength: 28,
-          periodLength: 5,
-        },
-      };
-      console.log("Initializing with new data:", newData);
-      setUserDataState(newData);
+        currentDayInCycle: 1,
+        cycleLength: 28,
+      });
     }
   };
 
   if (!isLoaded) {
-    return <div>Loading...</div>; // Or a proper loading component
+    return <div>Loading...</div>;
   }
 
   return (
@@ -117,9 +108,10 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       value={{
         userData,
         setUserData,
-        updateCycleData,
+        updateDayInCycle,
+        updateCycleLength,
         updateUserName,
-        logPeriod,
+        resetToDayOne,
       }}
     >
       {children}
