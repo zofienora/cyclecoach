@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header className="flex flex-col items-center px-4 pt-4 mx-auto gap-4 h-screen w-full">
       <div className="flex flex-col items-center">
-        <h1 className="text-7xl font-bold font-heading text-secondary text-center py-8">
+        <h1 className="text-7xl font-bold font-heading text-secondary text-center pb-18 py-8">
           CycleCoach
         </h1>
       </div>
@@ -76,7 +76,7 @@ export default function Header() {
 
       {/* Everything else appears after inputs */}
       <div className="flex flex-col items-center">
-        <h2 className="font-heading text-foreground text-center text-4xl pt-28">
+        <h2 className="font-heading text-foreground text-center text-4xl pt-20">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
@@ -105,7 +105,7 @@ export default function Header() {
         // The circle should fill progressively through the cycle
         // Color matches the current phase
         return (
-          <div className="mt-10 flex flex-col items-center gap-8 pt-4">
+          <div className="mt-10 flex flex-col items-center gap-8">
             {/* Headline */}
             <h3 className="text-xl font-heading text-foreground text-center">
               Where you are in your cycle:
