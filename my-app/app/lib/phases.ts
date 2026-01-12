@@ -97,3 +97,56 @@ export function getPhaseForDay(day: number, cycleLength: number): Phase {
 export function getMenstrualPeriodLength(): number {
   return 5; // typical period length
 }
+
+/**
+ * Get the next upcoming phase after the current day
+ */
+export function getNextPhase(day: number, cycleLength: number): Phase {
+  // Menstrual phase: typically days 1-5
+  const menstrualEnd = 5;
+  
+  // Ovulation typically occurs around day 14 for a 28-day cycle
+  const ovulationDay = Math.round((14 / 28) * cycleLength);
+  const ovulatoryStart = ovulationDay - 1;
+  const ovulatoryEnd = ovulationDay + 1;
+  
+  // Follicular phase: after menstrual until ovulation
+  const follicularStart = menstrualEnd + 1;
+  const follicularEnd = ovulatoryStart - 1;
+  
+  // Luteal phase: after ovulation until end of cycle
+  const lutealStart = ovulatoryEnd + 1;
+
+  if (day <= menstrualEnd) {
+    return phases[1]; // Next: follicular
+  } else if (day >= follicularStart && day <= follicularEnd) {
+    return phases[2]; // Next: ovulatory
+  } else if (day >= ovulatoryStart && day <= ovulatoryEnd) {
+    return phases[3]; // Next: luteal
+  } else {
+    return phases[0]; // Next: menstrual (cycle resets)
+  }
+}
+
+/**
+ * Calculate how many days until the next phase
+ */
+export function getDaysUntilNextPhase(day: number, cycleLength: number): number {
+  const menstrualEnd = 5;
+  const ovulationDay = Math.round((14 / 28) * cycleLength);
+  const ovulatoryStart = ovulationDay - 1;
+  const ovulatoryEnd = ovulationDay + 1;
+  const follicularStart = menstrualEnd + 1;
+  const follicularEnd = ovulatoryStart - 1;
+  const lutealStart = ovulatoryEnd + 1;
+
+  if (day <= menstrualEnd) {
+    return follicularStart - day; // Days until follicular
+  } else if (day >= follicularStart && day <= follicularEnd) {
+    return ovulatoryStart - day; // Days until ovulatory
+  } else if (day >= ovulatoryStart && day <= ovulatoryEnd) {
+    return lutealStart - day; // Days until luteal
+  } else {
+    return cycleLength - day + 1; // Days until next cycle (menstrual)
+  }
+}
