@@ -15,7 +15,10 @@ export const phases: Phase[] = [
     color: "#F24535", // red-orange
     tips: [
       "rest, gentle movement, and self-care",
-      "nourishing food, hydration, and relaxation"
+      "nourishing food, hydration, and relaxation",
+      "warm baths",
+      "yoga stretches",
+      "herbal teas"
     ],
   },
   {
@@ -24,7 +27,10 @@ export const phases: Phase[] = [
     color: "#F2AEEE", // soft pink
     tips: [
       "building energy, light exercise, and fresh foods",
-      "increasing activity, social connections, and new beginnings"
+      "increasing activity, social connections, and new beginnings",
+      "cardio workouts",
+      "green vegetables",
+      "morning routines"
     ],
   },
   {
@@ -33,7 +39,10 @@ export const phases: Phase[] = [
     color: "#F2B035", // golden yellow
     tips: [
       "peak energy, strength training, and social activities",
-      "high-intensity workouts, communication, and confidence"
+      "high-intensity workouts, communication, and confidence",
+      "HIIT training",
+      "protein-rich meals",
+      "social events"
     ],
   },
   {
@@ -42,7 +51,10 @@ export const phases: Phase[] = [
     color: "#5941F2", // purple
     tips: [
       "calm movement, nourishing food, sleep and relaxation",
-      "gentle exercise, comfort foods, and restful activities"
+      "gentle exercise, comfort foods, and restful activities",
+      "meditation",
+      "dark chocolate",
+      "early bedtime"
     ],
   },
 ];
