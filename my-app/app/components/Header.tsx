@@ -36,7 +36,7 @@ export default function Header() {
         </div>
 
         {/* Day in cycle input */}
-        <div className="flex gap-3 w-full">
+        <div className="w-full">
           <input
             type="number"
             placeholder="Day in cycle"
@@ -44,14 +44,8 @@ export default function Header() {
             onChange={(e) => setDayInput(e.target.value)}
             min="1"
             max={userData?.cycleLength || 35}
-            className="flex-1 px-4 py-3 border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full px-4 py-3 border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
           />
-          <button
-            onClick={handleUpdateDay}
-            className="bg-primary text-white text-sm px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md"
-          >
-            Update Day
-          </button>
         </div>
 
         {/* Cycle length input */}
@@ -70,12 +64,12 @@ export default function Header() {
           </div>
         )}
 
-        {/* Reset to day 1 button */}
-        <button 
-          onClick={resetToDayOne}
-          className="bg-alert text-white text-sm px-6 py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-opacity w-full"
+        {/* Update button */}
+        <button
+          onClick={handleUpdateDay}
+          className="bg-primary text-white text-sm px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
         >
-          New Period (Reset to Day 1)
+          Update Day
         </button>
       </div>
 
