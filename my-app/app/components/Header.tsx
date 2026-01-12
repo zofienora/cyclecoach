@@ -105,7 +105,12 @@ export default function Header() {
         // The circle should fill progressively through the cycle
         // Color matches the current phase
         return (
-          <div className="mt-10 flex flex-col items-center gap-3 pt-24">
+          <div className="mt-10 flex flex-col items-center gap-4 pt-24">
+            {/* Headline */}
+            <h3 className="text-xl font-heading text-foreground text-center">
+              Where you are in your cycle:
+            </h3>
+            
             {/* SVG Circle */}
             <div className="relative w-60 h-60">
               <svg width={size} height={size} className="transform -rotate-90">
@@ -132,11 +137,6 @@ export default function Header() {
                   className="transition-all duration-300"
                 />
               </svg>
-            </div>
-            {/* Arrow + label */}
-            <div className="flex flex-col items-center text-sm text-foreground">
-              <span className="-mb-1">↑</span>
-              <span className="text-sm font-bold text-foreground pt-2 pb-4">you are here</span>
             </div>
           </div>
         );
