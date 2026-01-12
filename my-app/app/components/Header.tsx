@@ -1,6 +1,7 @@
 "use client";
 import { useUser } from "../context/UserContext";
 import { useState } from "react";
+import { getPhaseForDay, getMenstrualPeriodLength } from "../lib/phases";
 
 export default function Header() {
   const { userData, updateDayInCycle, updateCycleLength, updateUserName, resetToDayOne } = useUser();
@@ -80,25 +81,66 @@ export default function Header() {
         </h2>
       </div>
 
-      {/* Debug: Show current data */}
-      {userData && (
-        <div className="mt-4 p-4 bg-gray-100 rounded text-xs">
-          <p>Name: {userData.name}</p>
-          <p>Current Day: {userData.currentDayInCycle}</p>
-          <p>Cycle Length: {userData.cycleLength} days</p>
-        </div>
-      )}
-
-      {/* Static cycle position indicator */}
-      <div className="mt-10 flex flex-col items-center gap-3 pt-24">
-        {/* Outer ring */}
-        <div className="w-60 h-60 rounded-full border-14 border-alert bg-surface" />
-        {/* Arrow + label */}
-        <div className="flex flex-col items-center text-sm text-foreground">
-          <span className="-mb-1">↑</span>
-          <span className="text-sm font-bold text-foreground pt-2 pb-4">you are here</span>
-        </div>
-      </div>
+      {/* Dynamic cycle position indicator */}
+      {userData && (() => {
+        const currentDay = userData.currentDayInCycle;
+        const cycleLength = userData.cycleLength;
+        const phase = getPhaseForDay(currentDay, cycleLength);
+        const periodLength = getMenstrualPeriodLength();
+        
+        // Calculate progress: current day / cycle length
+        const progress = currentDay / cycleLength;
+        
+        // Circle parameters
+        const size = 240; // w-60 = 240px
+        const center = size / 2;
+        const radius = center - 14; // accounting for border width (14px)
+        const circumference = 2 * Math.PI * radius;
+        
+        // Calculate stroke dash for the progress
+        // Start from top (12 o'clock), so we offset by -90 degrees
+        const dashLength = circumference * progress;
+        const dashOffset = circumference - dashLength;
+        
+        // The circle should fill progressively through the cycle
+        // Color matches the current phase
+        return (
+          <div className="mt-10 flex flex-col items-center gap-3 pt-24">
+            {/* SVG Circle */}
+            <div className="relative w-60 h-60">
+              <svg width={size} height={size} className="transform -rotate-90">
+                {/* Background circle (gray) */}
+                <circle
+                  cx={center}
+                  cy={center}
+                  r={radius}
+                  fill="none"
+                  stroke="#F2F2F2"
+                  strokeWidth="14"
+                />
+                {/* Progress circle - fills based on current day, color matches phase */}
+                <circle
+                  cx={center}
+                  cy={center}
+                  r={radius}
+                  fill="none"
+                  stroke={phase.color}
+                  strokeWidth="14"
+                  strokeDasharray={circumference}
+                  strokeDashoffset={dashOffset}
+                  strokeLinecap="round"
+                  className="transition-all duration-300"
+                />
+              </svg>
+            </div>
+            {/* Arrow + label */}
+            <div className="flex flex-col items-center text-sm text-foreground">
+              <span className="-mb-1">↑</span>
+              <span className="text-sm font-bold text-foreground pt-2 pb-4">you are here</span>
+            </div>
+          </div>
+        );
+      })()}
     </header>
   );
 }
