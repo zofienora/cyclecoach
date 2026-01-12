@@ -1,8 +1,11 @@
 "use client";
 import * as motion from "motion/react-client"
 import { useRef, useState, useEffect } from 'react';
+import { useUser } from "../context/UserContext";
+import { getPhaseForDay } from "../lib/phases";
 
 export default function PhaseTracker() {
+    const { userData } = useUser();
     const containerRef = useRef<HTMLDivElement>(null);
     const [dimensions, setDimensions] = useState({
         width: 375,
@@ -15,10 +18,16 @@ export default function PhaseTracker() {
         setDimensions({ width: rect.width, height: rect.height });
     }
     }, []);
+
+    // Get the current phase
+    const currentPhase = userData 
+      ? getPhaseForDay(userData.currentDayInCycle, userData.cycleLength)
+      : null;
+
   return (
    <section className="rounded-lg p-4 h-screen">
     <h2 className="text-2xl font-bold font-heading text-foreground text-center py-8">
-      Today in your luteal phase
+      {currentPhase ? `Today in your ${currentPhase.name} phase` : "Today in your cycle"}
     </h2>
     <h3 className="text-lg font-sans text-foreground text-center py-8">
       calm movement, nourishing food, sleep and relaxation
