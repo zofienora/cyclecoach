@@ -20,64 +20,71 @@ export default function Header() {
         <h1 className="text-7xl font-bold font-heading text-secondary text-center py-8">
           CycleCoach
         </h1>
+      </div>
+
+      {/* Inputs section - nicely designed */}
+      <div className="flex flex-col items-center gap-4 w-full max-w-md px-4">
+        {/* Name input */}
+        <div className="w-full">
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={userData?.name || ""}
+            onChange={(e) => updateUserName(e.target.value)}
+            className="w-full px-4 py-3 border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+          />
+        </div>
+
+        {/* Day in cycle input */}
+        <div className="flex gap-3 w-full">
+          <input
+            type="number"
+            placeholder="Day in cycle"
+            value={dayInput}
+            onChange={(e) => setDayInput(e.target.value)}
+            min="1"
+            max={userData?.cycleLength || 35}
+            className="flex-1 px-4 py-3 border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+          />
+          <button
+            onClick={handleUpdateDay}
+            className="bg-primary text-white text-sm px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md"
+          >
+            Update Day
+          </button>
+        </div>
+
+        {/* Cycle length input */}
+        {userData && (
+          <div className="flex gap-3 items-center w-full">
+            <label className="text-sm text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
+            <input
+              type="number"
+              value={userData.cycleLength}
+              onChange={(e) => updateCycleLength(parseInt(e.target.value, 10))}
+              min="21"
+              max="35"
+              className="px-4 py-3 border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-24"
+            />
+            <span className="text-sm text-foreground">days</span>
+          </div>
+        )}
+
+        {/* Reset to day 1 button */}
+        <button 
+          onClick={resetToDayOne}
+          className="bg-alert text-white text-sm px-6 py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-opacity w-full"
+        >
+          New Period (Reset to Day 1)
+        </button>
+      </div>
+
+      {/* Everything else appears after inputs */}
+      <div className="flex flex-col items-center">
         <h2 className="font-heading text-foreground text-center text-4xl pt-8 pb-2">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
-
-      {/* Name input */}
-      <div className="flex gap-2 items-center">
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={userData?.name || ""}
-          onChange={(e) => updateUserName(e.target.value)}
-          className="px-3 py-1 border rounded"
-        />
-      </div>
-
-      {/* Day in cycle input */}
-      <div className="flex gap-2 items-center">
-        <input
-          type="number"
-          placeholder="Day in cycle"
-          value={dayInput}
-          onChange={(e) => setDayInput(e.target.value)}
-          min="1"
-          max={userData?.cycleLength || 35}
-          className="px-3 py-1 border rounded w-32"
-        />
-        <button
-          onClick={handleUpdateDay}
-          className="bg-primary text-white text-sm px-4 py-2 rounded font-semibold"
-        >
-          Update Day
-        </button>
-      </div>
-
-      {/* Reset to day 1 button */}
-      <button 
-        onClick={resetToDayOne}
-        className="bg-alert text-white text-sm px-4 py-2 rounded-full font-semibold shadow"
-      >
-        New Period (Reset to Day 1)
-      </button>
-
-      {/* Cycle length input */}
-      {userData && (
-        <div className="flex gap-2 items-center">
-          <label className="text-sm">Cycle Length:</label>
-          <input
-            type="number"
-            value={userData.cycleLength}
-            onChange={(e) => updateCycleLength(parseInt(e.target.value, 10))}
-            min="21"
-            max="35"
-            className="px-3 py-1 border rounded w-20"
-          />
-          <span className="text-sm">days</span>
-        </div>
-      )}
 
       {/* Debug: Show current data */}
       {userData && (
