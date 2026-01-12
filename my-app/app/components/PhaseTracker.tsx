@@ -1,6 +1,6 @@
 "use client";
 import * as motion from "motion/react-client"
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { useUser } from "../context/UserContext";
 import { getPhaseForDay } from "../lib/phases";
 
@@ -24,13 +24,23 @@ export default function PhaseTracker() {
       ? getPhaseForDay(userData.currentDayInCycle, userData.cycleLength)
       : null;
 
+    // Randomly select one recommendation from the current phase's tips
+    // Use useMemo to keep the same recommendation until phase changes
+    const selectedTip = useMemo(() => {
+      if (!currentPhase || !currentPhase.tips || currentPhase.tips.length === 0) {
+        return null;
+      }
+      const randomIndex = Math.floor(Math.random() * currentPhase.tips.length);
+      return currentPhase.tips[randomIndex];
+    }, [currentPhase?.name]); // Re-select when phase changes
+
   return (
    <section className="rounded-lg p-4 h-screen">
     <h2 className="text-2xl font-bold font-heading text-foreground text-center py-8">
       {currentPhase ? `Today in your ${currentPhase.name} phase` : "Today in your cycle"}
     </h2>
     <h3 className="text-lg font-sans text-foreground text-center py-8">
-      calm movement, nourishing food, sleep and relaxation
+      {selectedTip || "focus on your wellbeing"}
     </h3>
     <div ref={containerRef} className="w-[90%] h-[80%] mx-auto relative">
       {/* Top circle */}

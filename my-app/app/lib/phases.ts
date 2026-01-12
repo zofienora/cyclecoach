@@ -13,21 +13,37 @@ export const phases: Phase[] = [
     name: "menstrual",
     label: "Menstrual",
     color: "#F24535", // red-orange
+    tips: [
+      "rest, gentle movement, and self-care",
+      "nourishing food, hydration, and relaxation"
+    ],
   },
   {
     name: "follicular",
     label: "Follicular",
     color: "#F2AEEE", // soft pink
+    tips: [
+      "building energy, light exercise, and fresh foods",
+      "increasing activity, social connections, and new beginnings"
+    ],
   },
   {
     name: "ovulatory",
     label: "Ovulatory",
     color: "#F2B035", // golden yellow
+    tips: [
+      "peak energy, strength training, and social activities",
+      "high-intensity workouts, communication, and confidence"
+    ],
   },
   {
     name: "luteal",
     label: "Luteal",
     color: "#5941F2", // purple
+    tips: [
+      "calm movement, nourishing food, sleep and relaxation",
+      "gentle exercise, comfort foods, and restful activities"
+    ],
   },
 ];
 
