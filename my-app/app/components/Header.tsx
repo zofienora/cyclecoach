@@ -23,7 +23,7 @@ export default function Header() {
       </div>
 
       {/* Inputs section - nicely designed */}
-      <div className="flex flex-col items-center gap-4 w-full max-w-md px-4">
+      <div className="flex flex-col items-center gap-3 w-full max-w-sm px-4">
         {/* Name input */}
         <div className="w-full">
           <input
@@ -31,7 +31,7 @@ export default function Header() {
             placeholder="Enter your name"
             value={userData?.name || ""}
             onChange={(e) => updateUserName(e.target.value)}
-            className="w-full px-4 py-3 border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full px-3 py-2 text-sm border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
           />
         </div>
 
@@ -44,30 +44,30 @@ export default function Header() {
             onChange={(e) => setDayInput(e.target.value)}
             min="1"
             max={userData?.cycleLength || 35}
-            className="w-full px-4 py-3 border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full px-3 py-2 text-sm border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
           />
         </div>
 
         {/* Cycle length input */}
         {userData && (
-          <div className="flex gap-3 items-center w-full">
-            <label className="text-sm text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
+          <div className="flex gap-2 items-center w-full">
+            <label className="text-xs text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
             <input
               type="number"
               value={userData.cycleLength}
               onChange={(e) => updateCycleLength(parseInt(e.target.value, 10))}
               min="21"
               max="35"
-              className="px-4 py-3 border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-24"
+              className="px-3 py-2 text-sm border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20"
             />
-            <span className="text-sm text-foreground">days</span>
+            <span className="text-xs text-foreground">days</span>
           </div>
         )}
 
         {/* Update button */}
         <button
           onClick={handleUpdateDay}
-          className="bg-primary text-white text-sm px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
+          className="bg-primary text-white text-xs px-4 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
         >
           Update Day
         </button>
