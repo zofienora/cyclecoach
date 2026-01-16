@@ -57,51 +57,51 @@ export default function PhaseTracker() {
       {selectedTip || "focus on your wellbeing"}
     </h3>
     <div ref={containerRef} className="w-[90%] h-[80%] mx-auto relative">
-      {/* Top circle */}
+      {/* Top-left circle - stays in top-left area */}
       <motion.div
         className="w-50 h-50 rounded-full bg-secondary absolute flex items-center justify-center p-4"
-        initial={{ x: dimensions.width * 0.1, y: dimensions.height * 0.1 }}
+        initial={{ x: dimensions.width * 0.05, y: dimensions.height * 0.05 }}
         animate={{
-          x: [dimensions.width * 0.1, dimensions.width * 0.4, dimensions.width * 0.1],
-          y: [dimensions.height * 0.1, dimensions.height * 0.5, dimensions.height * 0.1],
+          x: [dimensions.width * 0.05, dimensions.width * 0.2, dimensions.width * 0.05],
+          y: [dimensions.height * 0.05, dimensions.height * 0.15, dimensions.height * 0.05],
         }}
         transition={{
         repeat: Infinity,
-        duration: 100,
-        ease: 'linear',
+        duration: 8,
+        ease: 'easeInOut',
         }}
       >
         <span className="text-white text-xs font-semibold text-center">{circleTips[0]}</span>
       </motion.div>
-      {/* Center circle */}
+      {/* Top-right circle - stays in top-right area */}
       <motion.div
         className="w-50 h-50 rounded-full bg-primary absolute flex items-center justify-center p-4"
-        initial={{ x: dimensions.width * 0.3, y: dimensions.height * 0.3 }}
+        initial={{ x: dimensions.width * 0.5, y: dimensions.height * 0.1 }}
         animate={{
-          x: [dimensions.width * 0.3, dimensions.width * 0.6, dimensions.width * 0.3],
-          y: [dimensions.height * 0.3, dimensions.height * 0.6, dimensions.height * 0.3],
+          x: [dimensions.width * 0.5, dimensions.width * 0.65, dimensions.width * 0.5],
+          y: [dimensions.height * 0.1, dimensions.height * 0.2, dimensions.height * 0.1],
         }}
         transition={{
           repeat: Infinity,
-          duration: 100,
-          ease: 'linear',
+          duration: 10,
+          ease: 'easeInOut',
         }}
       >
         <span className="text-white text-xs font-semibold text-center">{circleTips[1]}</span>
       </motion.div>
 
-      {/* Bottom zone circle */}
+      {/* Bottom circle - stays in bottom area */}
       <motion.div
         className="w-50 h-50 rounded-full bg-accent absolute flex items-center justify-center p-4"
-        initial={{ x: dimensions.width * 0.6, y: dimensions.height * 0.2 }}
+        initial={{ x: dimensions.width * 0.2, y: dimensions.height * 0.5 }}
         animate={{
-          x: [dimensions.width * 0.6, dimensions.width * 0.2, dimensions.width * 0.6],
-          y: [dimensions.height * 0.2, dimensions.height * 0.7, dimensions.height * 0.2],
+          x: [dimensions.width * 0.2, dimensions.width * 0.35, dimensions.width * 0.2],
+          y: [dimensions.height * 0.5, dimensions.height * 0.6, dimensions.height * 0.5],
         }}
         transition={{
           repeat: Infinity,
-          duration: 100,
-          ease: 'linear',
+          duration: 12,
+          ease: 'easeInOut',
         }}
       >
         <span className="text-white text-xs font-semibold text-center">{circleTips[2]}</span>
