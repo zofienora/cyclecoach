@@ -69,15 +69,15 @@ export default function Header() {
         {/* Update button */}
         <button
           onClick={handleUpdateDay}
-          className="bg-primary text-white text-sm px-4 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
+          className="bg-primary text-white text-sm px-4 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full mb-2 lg:mb-0"
         >
           Update Day
         </button>
       </div>
 
       {/* 3. Hello headline - bigger on laptop */}
-      <div className="flex flex-col items-center w-full">
-        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl lg:text-5xl pt-4 lg:pt-4 lg:pb-6">
+      <div className="flex flex-col items-center w-full mt-2 lg:mt-0">
+        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl lg:text-5xl pt-0 lg:pt-4 lg:pb-6">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
