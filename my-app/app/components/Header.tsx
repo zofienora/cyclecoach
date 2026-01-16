@@ -26,7 +26,7 @@ export default function Header() {
 
       {/* Hello headline - bigger on laptop */}
       <div className="flex flex-col items-center w-full">
-        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl lg:text-5xl pt-20 lg:pt-4 lg:pb-6">
+        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl lg:text-5xl pt-4 lg:pt-4 lg:pb-6">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
