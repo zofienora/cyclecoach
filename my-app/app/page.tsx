@@ -4,7 +4,7 @@ import Suggestions from "./components/Suggestions";
 
 export default function Home() {
   return (
-    <main className="w-[90%] max-w-xl mx-auto px-4">
+    <main className="w-[90%] max-w-xl lg:max-w-6xl mx-auto px-4">
       <Header />
       <PhaseTracker />
       {/* More components like PhaseTracker will come next */}

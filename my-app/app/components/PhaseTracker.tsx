@@ -49,14 +49,14 @@ export default function PhaseTracker() {
     }, [currentPhase?.name]); // Re-select when phase changes
 
   return (
-   <section className="rounded-lg p-4 h-screen">
-    <h2 className="text-2xl sm:text-3xl font-bold font-heading text-foreground text-center py-6 sm:py-8">
+   <section className="rounded-lg p-4 h-screen lg:h-auto lg:min-h-[600px]">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-foreground text-center py-6 sm:py-8 lg:py-10">
       {currentPhase ? `Today in your ${currentPhase.name} phase` : "Today in your cycle"}
     </h2>
-    <h3 className="text-base sm:text-lg font-sans text-foreground text-center py-4 sm:py-6">
+    <h3 className="text-base sm:text-lg lg:text-xl font-sans text-foreground text-center py-4 sm:py-6 lg:py-8">
       {selectedTip || "focus on your wellbeing"}
     </h3>
-    <div ref={containerRef} className="w-[90%] h-[80%] mx-auto relative">
+    <div ref={containerRef} className="w-[90%] lg:w-full lg:max-w-4xl h-[80%] lg:h-[500px] mx-auto relative">
       {/* Top-left circle - stays in top-left area */}
       <motion.div
         className="w-50 h-50 rounded-full bg-secondary absolute flex items-center justify-center p-4"
@@ -87,7 +87,7 @@ export default function PhaseTracker() {
           ease: 'easeInOut',
         }}
       >
-        <span className="text-white text-xs font-semibold text-center">{circleTips[1]}</span>
+        <span className="text-white text-sm font-semibold text-center">{circleTips[1]}</span>
       </motion.div>
 
       {/* Bottom circle - stays in bottom area */}
@@ -104,7 +104,7 @@ export default function PhaseTracker() {
           ease: 'easeInOut',
         }}
       >
-        <span className="text-white text-xs font-semibold text-center">{circleTips[2]}</span>
+        <span className="text-white text-sm font-semibold text-center">{circleTips[2]}</span>
       </motion.div>
     </div>
    </section>

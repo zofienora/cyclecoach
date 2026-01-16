@@ -92,28 +92,28 @@ export default function Suggestions() {
   };
 
   return (
-   <section className="rounded-lg p-4 h-screen">
-    <h2 className="text-2xl sm:text-3xl font-bold font-heading text-foreground text-center py-6 sm:py-8">
+   <section className="rounded-lg p-4 h-screen lg:h-auto lg:min-h-[600px]">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-foreground text-center py-6 sm:py-8 lg:py-10">
       Explore
     </h2>
-    <div className="">
+    <div className="lg:grid lg:grid-cols-3 lg:gap-6 lg:max-w-5xl lg:mx-auto">
         <button 
           onClick={handleOpenPhaseModal}
-          className="w-full bg-primary rounded-lg p-10 mt-5 mb-5 hover:opacity-90 transition-opacity cursor-pointer"
+          className="w-full bg-primary rounded-lg p-10 mt-5 mb-5 lg:mt-0 lg:mb-0 hover:opacity-90 transition-opacity cursor-pointer"
         >
-            <p className="text-base sm:text-lg font-bold font-heading text-white uppercase text-center pt-10 pb-10">Upcoming Phase</p>
+            <p className="text-base sm:text-lg lg:text-xl font-bold font-heading text-white uppercase text-center pt-10 pb-10 lg:pt-8 lg:pb-8">Upcoming Phase</p>
         </button>
         <button 
           onClick={handleOpenArticle1Modal}
-          className="w-full border-2 border-secondary rounded-lg p-10 mt-5 mb-5 hover:opacity-90 transition-opacity cursor-pointer"
+          className="w-full border-2 border-secondary rounded-lg p-10 mt-5 mb-5 lg:mt-0 lg:mb-0 hover:opacity-90 transition-opacity cursor-pointer"
         >
-            <p className="text-base sm:text-lg font-sans text-center pt-10 pb-10">{selectedArticles[0]?.title || "Article"}</p>
+            <p className="text-base sm:text-lg lg:text-xl font-sans text-center pt-10 pb-10 lg:pt-8 lg:pb-8">{selectedArticles[0]?.title || "Article"}</p>
         </button>
         <button 
           onClick={handleOpenArticle2Modal}
-          className="w-full border-2 border-alert rounded-lg p-10 mt-5 mb-5 hover:opacity-90 transition-opacity cursor-pointer"
+          className="w-full border-2 border-alert rounded-lg p-10 mt-5 mb-5 lg:mt-0 lg:mb-0 hover:opacity-90 transition-opacity cursor-pointer"
         >
-            <p className="text-base sm:text-lg font-sans text-center pt-10 pb-10">{selectedArticles[1]?.title || "Article"}</p>
+            <p className="text-base sm:text-lg lg:text-xl font-sans text-center pt-10 pb-10 lg:pt-8 lg:pb-8">{selectedArticles[1]?.title || "Article"}</p>
         </button>
     </div>
 
@@ -124,7 +124,7 @@ export default function Suggestions() {
         onClick={handleClosePhaseModal}
       >
         <div 
-          className="bg-surface rounded-lg p-8 max-w-md w-full relative shadow-lg border-2"
+          className="bg-surface rounded-lg p-8 lg:p-10 max-w-md lg:max-w-2xl w-full relative shadow-lg border-2"
           style={{ borderColor: nextPhase.color }}
           onClick={(e) => e.stopPropagation()}
         >
