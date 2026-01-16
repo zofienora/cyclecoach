@@ -50,10 +50,10 @@ export default function PhaseTracker() {
 
   return (
    <section className="rounded-lg p-4 h-screen">
-    <h2 className="text-2xl font-bold font-heading text-foreground text-center py-8">
+    <h2 className="text-2xl sm:text-3xl font-bold font-heading text-foreground text-center py-6 sm:py-8">
       {currentPhase ? `Today in your ${currentPhase.name} phase` : "Today in your cycle"}
     </h2>
-    <h3 className="text-lg font-sans text-foreground text-center py-8">
+    <h3 className="text-base sm:text-lg font-sans text-foreground text-center py-4 sm:py-6">
       {selectedTip || "focus on your wellbeing"}
     </h3>
     <div ref={containerRef} className="w-[90%] h-[80%] mx-auto relative">
@@ -71,7 +71,7 @@ export default function PhaseTracker() {
         ease: 'easeInOut',
         }}
       >
-        <span className="text-white text-xs font-semibold text-center">{circleTips[0]}</span>
+        <span className="text-white text-sm font-semibold text-center">{circleTips[0]}</span>
       </motion.div>
       {/* Top-right circle - stays in top-right area */}
       <motion.div

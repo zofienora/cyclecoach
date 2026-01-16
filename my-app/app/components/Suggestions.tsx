@@ -93,7 +93,7 @@ export default function Suggestions() {
 
   return (
    <section className="rounded-lg p-4 h-screen">
-    <h2 className="text-2xl font-bold font-heading text-foreground text-center py-8">
+    <h2 className="text-2xl sm:text-3xl font-bold font-heading text-foreground text-center py-6 sm:py-8">
       Explore
     </h2>
     <div className="">
@@ -101,19 +101,19 @@ export default function Suggestions() {
           onClick={handleOpenPhaseModal}
           className="w-full bg-primary rounded-lg p-10 mt-5 mb-5 hover:opacity-90 transition-opacity cursor-pointer"
         >
-            <p className="text-lg font-bold font-heading text-white uppercase text-center pt-10 pb-10">Upcoming Phase</p>
+            <p className="text-base sm:text-lg font-bold font-heading text-white uppercase text-center pt-10 pb-10">Upcoming Phase</p>
         </button>
         <button 
           onClick={handleOpenArticle1Modal}
           className="w-full border-2 border-secondary rounded-lg p-10 mt-5 mb-5 hover:opacity-90 transition-opacity cursor-pointer"
         >
-            <p className="text-lg font-sans text-center pt-10 pb-10">{selectedArticles[0]?.title || "Article"}</p>
+            <p className="text-base sm:text-lg font-sans text-center pt-10 pb-10">{selectedArticles[0]?.title || "Article"}</p>
         </button>
         <button 
           onClick={handleOpenArticle2Modal}
           className="w-full border-2 border-alert rounded-lg p-10 mt-5 mb-5 hover:opacity-90 transition-opacity cursor-pointer"
         >
-            <p className="text-lg font-sans text-center pt-10 pb-10">{selectedArticles[1]?.title || "Article"}</p>
+            <p className="text-base sm:text-lg font-sans text-center pt-10 pb-10">{selectedArticles[1]?.title || "Article"}</p>
         </button>
     </div>
 
@@ -139,14 +139,14 @@ export default function Suggestions() {
           {/* Modal content */}
           <div className="mt-4">
             <h3 
-              className="text-3xl font-bold font-heading text-center mb-4"
+              className="text-2xl sm:text-3xl font-bold font-heading text-center mb-4"
               style={{ color: nextPhase.color }}
             >
               {nextPhase.label} Phase
             </h3>
             
             <div className="text-center mb-6">
-              <p className="text-lg font-sans text-foreground">
+              <p className="text-base sm:text-lg font-sans text-foreground">
                 {daysUntil === 1 
                   ? "Starts tomorrow" 
                   : `Starts in ${daysUntil} days`}
@@ -155,10 +155,10 @@ export default function Suggestions() {
 
             <div className="space-y-4">
               <div>
-                <h4 className="text-xl font-bold font-heading text-foreground mb-2">
+                <h4 className="text-lg sm:text-xl font-bold font-heading text-foreground mb-2">
                   What to expect:
                 </h4>
-                <p className="text-base font-sans text-foreground">
+                <p className="text-sm sm:text-base font-sans text-foreground">
                   {nextPhase.name === "menstrual" && "A time for rest, gentle movement, and self-care. Focus on nourishing your body and allowing it to recover."}
                   {nextPhase.name === "follicular" && "A period of building energy and increasing activity. Great time for fresh starts, light exercise, and social connections."}
                   {nextPhase.name === "ovulatory" && "Peak energy phase! Perfect for strength training, high-intensity workouts, and social activities. Your body is at its strongest."}
@@ -167,10 +167,10 @@ export default function Suggestions() {
               </div>
 
               <div>
-                <h4 className="text-xl font-bold font-heading text-foreground mb-2">
+                <h4 className="text-lg sm:text-xl font-bold font-heading text-foreground mb-2">
                   Recommendations:
                 </h4>
-                <ul className="list-disc list-inside space-y-2 text-base font-sans text-foreground">
+                <ul className="list-disc list-inside space-y-2 text-sm sm:text-base font-sans text-foreground">
                   {nextPhase.tips && nextPhase.tips.slice(0, 2).map((tip, index) => (
                     <li key={index}>{tip}</li>
                   ))}
@@ -203,13 +203,13 @@ export default function Suggestions() {
           {/* Modal content */}
           <div className="mt-4">
             <h3 
-              className="text-3xl font-bold font-heading text-center mb-6"
+              className="text-2xl sm:text-3xl font-bold font-heading text-center mb-6"
               style={{ color: "#5941F2" }}
             >
               {selectedArticles[0].title}
             </h3>
             
-            <p className="text-base font-sans text-foreground leading-relaxed">
+            <p className="text-sm sm:text-base font-sans text-foreground leading-relaxed">
               {selectedArticles[0].content}
             </p>
           </div>
@@ -238,13 +238,13 @@ export default function Suggestions() {
           {/* Modal content */}
           <div className="mt-4">
             <h3 
-              className="text-3xl font-bold font-heading text-center mb-6"
+              className="text-2xl sm:text-3xl font-bold font-heading text-center mb-6"
               style={{ color: "#F24535" }}
             >
               {selectedArticles[1].title}
             </h3>
             
-            <p className="text-base font-sans text-foreground leading-relaxed">
+            <p className="text-sm sm:text-base font-sans text-foreground leading-relaxed">
               {selectedArticles[1].content}
             </p>
           </div>
