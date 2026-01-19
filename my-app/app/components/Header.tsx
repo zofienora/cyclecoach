@@ -198,7 +198,7 @@ export default function Header() {
       </div>
 
       {/* 5. Hello headline - desktop only (below flexbox / button) */}
-      <div className="hidden lg:flex flex-col items-center w-full pt-8 pb-4">
+      <div className="hidden lg:flex flex-col items-center w-full pt-32 pb-4">
         <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl lg:text-5xl">
           Hello, {userData?.name || "there"} 👋
         </h2>
