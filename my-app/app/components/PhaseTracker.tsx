@@ -50,10 +50,10 @@ export default function PhaseTracker() {
 
   return (
    <section className="rounded-lg p-4 h-screen lg:h-auto lg:min-h-[600px]">
-    <h2 className="text-headline text-foreground text-center py-6 sm:py-8 lg:py-10">
+    <h2 className="text-headline text-foreground text-center py-6 sm:py-8 lg:pt-6 lg:pb-4">
       {currentPhase ? `Today in your ${currentPhase.name} phase` : "Today in your cycle"}
     </h2>
-    <p className="text-body text-foreground text-center py-4 sm:py-6 lg:py-8">
+    <p className="text-body text-foreground text-center py-4 sm:py-6 lg:pt-1 lg:pb-8">
       {selectedTip || "focus on your wellbeing"}
     </p>
     <div ref={containerRef} className="w-[90%] lg:w-full lg:max-w-4xl h-[80%] lg:h-[500px] mx-auto relative">
