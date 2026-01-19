@@ -84,15 +84,15 @@ export default function Header() {
 
       {/* 4. Desktop: two tiles (inputs left, cycle right). Mobile: cycle only. */}
       <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-6 lg:max-w-4xl w-full">
-        {/* Left tile - Inputs (desktop only), Upcoming Phase style */}
-        <div className="hidden lg:flex flex-col items-center justify-center rounded-lg bg-primary p-10 lg:aspect-square">
+        {/* Left tile - Inputs (desktop only), border only, mobile colorways */}
+        <div className="hidden lg:flex flex-col items-center justify-center rounded-lg border-2 border-primary p-10 lg:aspect-square">
           <div className="flex flex-col items-center gap-3 w-full max-w-xs">
             <input
               type="text"
               placeholder="Enter your name"
               value={userData?.name || ""}
               onChange={(e) => updateUserName(e.target.value)}
-              className="w-full px-3 py-2 text-body border-2 border-secondary rounded-full bg-background text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all"
+              className="w-full px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
             />
             <input
               type="number"
@@ -101,33 +101,33 @@ export default function Header() {
               onChange={(e) => setDayInput(e.target.value)}
               min="1"
               max={userData?.cycleLength || 35}
-              className="w-full px-3 py-2 text-body border-2 border-secondary rounded-full bg-background text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all"
+              className="w-full px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
             />
             {userData && (
               <div className="flex gap-2 items-center w-full">
-                <label className="text-body text-white font-medium whitespace-nowrap">Cycle Length:</label>
+                <label className="text-body text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
                 <input
                   type="number"
                   value={userData.cycleLength}
                   onChange={(e) => updateCycleLength(parseInt(e.target.value, 10))}
                   min="21"
                   max="35"
-                  className="px-3 py-2 text-body border-2 border-secondary rounded-full bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all w-20"
+                  className="px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20"
                 />
-                <span className="text-body text-white">days</span>
+                <span className="text-body text-foreground">days</span>
               </div>
             )}
             <button
               onClick={handleUpdateDay}
-              className="bg-background text-foreground text-body px-8 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
+              className="bg-primary text-white text-body px-8 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
             >
               Update
             </button>
           </div>
         </div>
 
-        {/* Right tile - Cycle indicator, Upcoming Phase style */}
-      <div className="mt-4 lg:mt-0 flex flex-col items-center justify-center lg:rounded-lg lg:bg-primary lg:p-10 lg:aspect-square">
+        {/* Right tile - Cycle indicator, no border, mobile colorways */}
+      <div className="mt-4 lg:mt-0 flex flex-col items-center justify-center lg:rounded-lg lg:p-10 lg:aspect-square">
       {userData && (() => {
         const currentDay = userData.currentDayInCycle;
         const cycleLength = userData.cycleLength;
@@ -153,7 +153,7 @@ export default function Header() {
         return (
           <div className="flex flex-col items-center justify-center gap-6">
             {/* Headline */}
-            <h3 className="text-headline text-foreground text-center lg:text-white">
+            <h3 className="text-headline text-foreground text-center">
               Where you are in your cycle:
             </h3>
             
