@@ -77,7 +77,7 @@ export default function Header() {
 
       {/* 3. Hello headline - mobile only (between inputs and cycle) */}
       <div className="flex lg:hidden flex-col items-center w-full mt-16">
-        <h2 className="text-headline text-foreground text-center">
+        <h2 className="text-3xl font-bold font-heading text-foreground text-center">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
@@ -199,7 +199,7 @@ export default function Header() {
 
       {/* 5. Hello headline - desktop only (below flexbox / button) */}
       <div className="hidden lg:flex flex-col items-center w-full pt-32 pb-4">
-        <h2 className="text-headline text-foreground text-center">
+        <h2 className="text-3xl lg:text-4xl font-bold font-heading text-foreground text-center">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
