@@ -48,6 +48,18 @@ export default function PhaseTracker() {
       return shuffled.slice(0, 3);
     }, [currentPhase?.name]); // Re-select when phase changes
 
+    const [openTipIndex, setOpenTipIndex] = useState<number | null>(null);
+
+    // Escape to close tip modal
+    useEffect(() => {
+      if (openTipIndex === null) return;
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setOpenTipIndex(null);
+      };
+      window.addEventListener("keydown", onKey);
+      return () => window.removeEventListener("keydown", onKey);
+    }, [openTipIndex]);
+
   return (
    <section className="rounded-lg p-4 h-screen lg:h-auto lg:min-h-[600px]">
     <h2 className="text-headline text-foreground text-center py-6 sm:py-8 lg:pt-6 lg:pb-4">
@@ -59,7 +71,11 @@ export default function PhaseTracker() {
     <div ref={containerRef} className="w-[90%] lg:w-full lg:max-w-4xl h-[80%] lg:h-[500px] mx-auto relative">
       {/* Top-left circle - stays in top-left area */}
       <motion.div
-        className="w-50 h-50 rounded-full bg-secondary absolute flex items-center justify-center p-4"
+        role="button"
+        tabIndex={0}
+        onClick={() => setOpenTipIndex(0)}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenTipIndex(0); } }}
+        className="w-50 h-50 rounded-full bg-secondary absolute flex items-center justify-center p-4 cursor-pointer"
         initial={{ x: dimensions.width * 0.05, y: dimensions.height * 0.05 }}
         animate={{
           x: [dimensions.width * 0.05, dimensions.width * 0.2, dimensions.width * 0.05],
@@ -75,7 +91,11 @@ export default function PhaseTracker() {
       </motion.div>
       {/* Top-right circle - stays in top-right area */}
       <motion.div
-        className="w-50 h-50 rounded-full bg-primary absolute flex items-center justify-center p-4"
+        role="button"
+        tabIndex={0}
+        onClick={() => setOpenTipIndex(1)}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenTipIndex(1); } }}
+        className="w-50 h-50 rounded-full bg-primary absolute flex items-center justify-center p-4 cursor-pointer"
         initial={{ x: dimensions.width * 0.5, y: dimensions.height * 0.1 }}
         animate={{
           x: [dimensions.width * 0.5, dimensions.width * 0.65, dimensions.width * 0.5],
@@ -92,7 +112,11 @@ export default function PhaseTracker() {
 
       {/* Bottom circle - stays in bottom area */}
       <motion.div
-        className="w-50 h-50 rounded-full bg-accent absolute flex items-center justify-center p-4"
+        role="button"
+        tabIndex={0}
+        onClick={() => setOpenTipIndex(2)}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenTipIndex(2); } }}
+        className="w-50 h-50 rounded-full bg-accent absolute flex items-center justify-center p-4 cursor-pointer"
         initial={{ x: dimensions.width * 0.2, y: dimensions.height * 0.5 }}
         animate={{
           x: [dimensions.width * 0.2, dimensions.width * 0.35, dimensions.width * 0.2],
@@ -107,6 +131,35 @@ export default function PhaseTracker() {
         <span className="text-white text-body font-semibold text-center">{circleTips[2]}</span>
       </motion.div>
     </div>
+
+    {/* Tip modal - when a circle is clicked */}
+    {openTipIndex !== null && currentPhase && (
+      <div
+        className="fixed inset-0 flex items-center justify-center z-50 p-4"
+        onClick={() => setOpenTipIndex(null)}
+      >
+        <div
+          className="bg-white/55 backdrop-blur-xl rounded-2xl p-8 lg:p-10 max-w-md w-full relative shadow-2xl shadow-black/10 border border-white/50"
+          style={{ borderTopColor: currentPhase.color, borderTopWidth: "3px" }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={() => setOpenTipIndex(null)}
+            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full text-foreground/70 hover:text-foreground hover:bg-black/5 transition-all text-xl font-light"
+          >
+            ×
+          </button>
+          <div className="mt-4">
+            <h3 className="text-headline text-center mb-2" style={{ color: currentPhase.color }}>
+              {currentPhase.label} phase
+            </h3>
+            <p className="text-body text-foreground leading-relaxed">
+              {circleTips[openTipIndex]}
+            </p>
+          </div>
+        </div>
+      </div>
+    )}
    </section>
   );
 }

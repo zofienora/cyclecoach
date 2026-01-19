@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useUser } from "../context/UserContext";
 import { getNextPhase, getDaysUntilNextPhase } from "../lib/phases";
 
@@ -52,6 +52,7 @@ export default function Suggestions() {
   const [isPhaseModalOpen, setIsPhaseModalOpen] = useState(false);
   const [isArticle1ModalOpen, setIsArticle1ModalOpen] = useState(false);
   const [isArticle2ModalOpen, setIsArticle2ModalOpen] = useState(false);
+  const focusTriggerRef = useRef<HTMLElement | null>(null);
 
   const nextPhase = userData 
     ? getNextPhase(userData.currentDayInCycle, userData.cycleLength)
@@ -67,27 +68,50 @@ export default function Suggestions() {
     return shuffled.slice(0, 2);
   }, [userData?.currentDayInCycle]); // Re-select when day changes
 
+  // Escape to close modal
+  useEffect(() => {
+    if (!isPhaseModalOpen && !isArticle1ModalOpen && !isArticle2ModalOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (isPhaseModalOpen) handleClosePhaseModal();
+        else if (isArticle1ModalOpen) handleCloseArticle1Modal();
+        else if (isArticle2ModalOpen) handleCloseArticle2Modal();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isPhaseModalOpen, isArticle1ModalOpen, isArticle2ModalOpen]);
+
   const handleOpenPhaseModal = () => {
+    focusTriggerRef.current = document.activeElement as HTMLElement | null;
     setIsPhaseModalOpen(true);
   };
 
   const handleClosePhaseModal = () => {
+    focusTriggerRef.current?.focus();
+    focusTriggerRef.current = null;
     setIsPhaseModalOpen(false);
   };
 
   const handleOpenArticle1Modal = () => {
+    focusTriggerRef.current = document.activeElement as HTMLElement | null;
     setIsArticle1ModalOpen(true);
   };
 
   const handleCloseArticle1Modal = () => {
+    focusTriggerRef.current?.focus();
+    focusTriggerRef.current = null;
     setIsArticle1ModalOpen(false);
   };
 
   const handleOpenArticle2Modal = () => {
+    focusTriggerRef.current = document.activeElement as HTMLElement | null;
     setIsArticle2ModalOpen(true);
   };
 
   const handleCloseArticle2Modal = () => {
+    focusTriggerRef.current?.focus();
+    focusTriggerRef.current = null;
     setIsArticle2ModalOpen(false);
   };
 
