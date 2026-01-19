@@ -124,14 +124,14 @@ export default function Suggestions() {
         onClick={handleClosePhaseModal}
       >
         <div 
-          className="bg-surface rounded-lg p-8 lg:p-10 max-w-md lg:max-w-2xl w-full relative shadow-lg border-2"
-          style={{ borderColor: nextPhase.color }}
+          className="bg-white/90 backdrop-blur-xl rounded-2xl p-8 lg:p-10 max-w-md lg:max-w-2xl w-full relative shadow-2xl shadow-black/10 border border-white/60"
+          style={{ borderTopColor: nextPhase.color, borderTopWidth: "3px" }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
           <button
             onClick={handleClosePhaseModal}
-            className="absolute top-4 right-4 text-foreground hover:text-alert transition-colors text-2xl font-bold"
+            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full text-foreground/70 hover:text-foreground hover:bg-black/5 transition-all text-xl font-light"
           >
             ×
           </button>
@@ -189,13 +189,13 @@ export default function Suggestions() {
         onClick={handleCloseArticle1Modal}
       >
         <div 
-          className="bg-surface rounded-lg p-8 max-w-md w-full relative shadow-lg border-2 border-secondary"
+          className="bg-white/90 backdrop-blur-xl rounded-2xl p-8 max-w-md w-full relative shadow-2xl shadow-black/10 border border-white/60 border-t-[3px] border-t-secondary"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
           <button
             onClick={handleCloseArticle1Modal}
-            className="absolute top-4 right-4 text-foreground hover:text-alert transition-colors text-2xl font-bold"
+            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full text-foreground/70 hover:text-foreground hover:bg-black/5 transition-all text-xl font-light"
           >
             ×
           </button>
@@ -224,13 +224,13 @@ export default function Suggestions() {
         onClick={handleCloseArticle2Modal}
       >
         <div 
-          className="bg-surface rounded-lg p-8 max-w-md w-full relative shadow-lg border-2 border-alert"
+          className="bg-white/90 backdrop-blur-xl rounded-2xl p-8 max-w-md w-full relative shadow-2xl shadow-black/10 border border-white/60 border-t-[3px] border-t-alert"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
           <button
             onClick={handleCloseArticle2Modal}
-            className="absolute top-4 right-4 text-foreground hover:text-alert transition-colors text-2xl font-bold"
+            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full text-foreground/70 hover:text-foreground hover:bg-black/5 transition-all text-xl font-light"
           >
             ×
           </button>
