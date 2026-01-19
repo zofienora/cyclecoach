@@ -6,12 +6,36 @@ import { getPhaseForDay, getMenstrualPeriodLength } from "../lib/phases";
 export default function Header() {
   const { userData, updateDayInCycle, updateCycleLength, updateUserName, resetToDayOne } = useUser();
   const [dayInput, setDayInput] = useState<string>("");
+  const [dayError, setDayError] = useState<string>("");
+  const [cycleLengthInput, setCycleLengthInput] = useState<string>("");
+  const [cycleLengthError, setCycleLengthError] = useState<string>("");
 
   const handleUpdateDay = () => {
-    const day = parseInt(dayInput, 10);
-    if (day >= 1 && day <= (userData?.cycleLength || 35)) {
-      updateDayInCycle(day);
-      setDayInput("");
+    const max = userData?.cycleLength ?? 35;
+    const d = parseInt(dayInput, 10);
+    if (dayInput.trim() === "" || isNaN(d)) {
+      setDayError(`Please enter a day between 1 and ${max}.`);
+      return;
+    }
+    if (d < 1 || d > max) {
+      setDayError(`Day must be between 1 and ${max}.`);
+      return;
+    }
+    setDayError("");
+    updateDayInCycle(d);
+    setDayInput("");
+  };
+
+  const handleCycleLengthBlur = () => {
+    const raw = cycleLengthInput !== "" ? cycleLengthInput : (userData ? String(userData.cycleLength) : "");
+    const v = parseInt(raw, 10);
+    if (!isNaN(v) && v >= 21 && v <= 35) {
+      updateCycleLength(v);
+      setCycleLengthInput("");
+      setCycleLengthError("");
+    } else {
+      setCycleLengthError("Cycle length must be between 21 and 35.");
+      setCycleLengthInput("");
     }
   };
 
@@ -43,26 +67,31 @@ export default function Header() {
             type="number"
             placeholder="Day in cycle"
             value={dayInput}
-            onChange={(e) => setDayInput(e.target.value)}
+            onChange={(e) => { setDayInput(e.target.value); setDayError(""); }}
             min="1"
             max={userData?.cycleLength || 35}
-            className="w-full px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className={`w-full px-3 py-2 text-body border-2 rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all ${dayError ? "border-alert" : "border-primary"}`}
           />
+          {dayError && <p className="text-body text-alert mt-1 px-1">{dayError}</p>}
         </div>
 
         {/* Cycle length input */}
         {userData && (
-          <div className="flex gap-2 items-center w-full">
-            <label className="text-body text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
-            <input
-              type="number"
-              value={userData.cycleLength}
-              onChange={(e) => updateCycleLength(parseInt(e.target.value, 10))}
-              min="21"
-              max="35"
-              className="px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20"
-            />
-            <span className="text-body text-foreground">days</span>
+          <div className="w-full">
+            <div className="flex gap-2 items-center w-full">
+              <label className="text-body text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
+              <input
+                type="number"
+                value={cycleLengthInput !== "" ? cycleLengthInput : String(userData.cycleLength)}
+                onChange={(e) => { setCycleLengthInput(e.target.value); setCycleLengthError(""); }}
+                onBlur={handleCycleLengthBlur}
+                min="21"
+                max="35"
+                className={`px-3 py-2 text-body border-2 rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20 ${cycleLengthError ? "border-alert" : "border-primary"}`}
+              />
+              <span className="text-body text-foreground">days</span>
+            </div>
+            {cycleLengthError && <p className="text-body text-alert mt-1 px-1">{cycleLengthError}</p>}
           </div>
         )}
 
@@ -98,23 +127,28 @@ export default function Header() {
               type="number"
               placeholder="Day in cycle"
               value={dayInput}
-              onChange={(e) => setDayInput(e.target.value)}
+              onChange={(e) => { setDayInput(e.target.value); setDayError(""); }}
               min="1"
               max={userData?.cycleLength || 35}
-              className="w-full px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className={`w-full px-3 py-2 text-body border-2 rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all ${dayError ? "border-alert" : "border-primary"}`}
             />
+            {dayError && <p className="text-body text-alert mt-1 px-1 w-full text-left">{dayError}</p>}
             {userData && (
-              <div className="flex gap-2 items-center w-full">
-                <label className="text-body text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
-                <input
-                  type="number"
-                  value={userData.cycleLength}
-                  onChange={(e) => updateCycleLength(parseInt(e.target.value, 10))}
-                  min="21"
-                  max="35"
-                  className="px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20"
-                />
-                <span className="text-body text-foreground">days</span>
+              <div className="w-full">
+                <div className="flex gap-2 items-center w-full">
+                  <label className="text-body text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
+                  <input
+                    type="number"
+                    value={cycleLengthInput !== "" ? cycleLengthInput : String(userData.cycleLength)}
+                    onChange={(e) => { setCycleLengthInput(e.target.value); setCycleLengthError(""); }}
+                    onBlur={handleCycleLengthBlur}
+                    min="21"
+                    max="35"
+                    className={`px-3 py-2 text-body border-2 rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20 ${cycleLengthError ? "border-alert" : "border-primary"}`}
+                  />
+                  <span className="text-body text-foreground">days</span>
+                </div>
+                {cycleLengthError && <p className="text-body text-alert mt-1 px-1 w-full text-left">{cycleLengthError}</p>}
               </div>
             )}
             <button
