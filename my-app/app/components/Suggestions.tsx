@@ -124,7 +124,7 @@ export default function Suggestions() {
         onClick={handleClosePhaseModal}
       >
         <div 
-          className="bg-white/90 backdrop-blur-xl rounded-2xl p-8 lg:p-10 max-w-md lg:max-w-2xl w-full relative shadow-2xl shadow-black/10 border border-white/60"
+          className="bg-white/55 backdrop-blur-xl rounded-2xl p-8 lg:p-10 max-w-md lg:max-w-2xl w-full relative shadow-2xl shadow-black/10 border border-white/50"
           style={{ borderTopColor: nextPhase.color, borderTopWidth: "3px" }}
           onClick={(e) => e.stopPropagation()}
         >
@@ -189,7 +189,7 @@ export default function Suggestions() {
         onClick={handleCloseArticle1Modal}
       >
         <div 
-          className="bg-white/90 backdrop-blur-xl rounded-2xl p-8 max-w-md w-full relative shadow-2xl shadow-black/10 border border-white/60 border-t-[3px] border-t-secondary"
+          className="bg-white/55 backdrop-blur-xl rounded-2xl p-8 max-w-md w-full relative shadow-2xl shadow-black/10 border border-white/50 border-t-[3px] border-t-secondary"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
@@ -224,7 +224,7 @@ export default function Suggestions() {
         onClick={handleCloseArticle2Modal}
       >
         <div 
-          className="bg-white/90 backdrop-blur-xl rounded-2xl p-8 max-w-md w-full relative shadow-2xl shadow-black/10 border border-white/60 border-t-[3px] border-t-alert"
+          className="bg-white/55 backdrop-blur-xl rounded-2xl p-8 max-w-md w-full relative shadow-2xl shadow-black/10 border border-white/50 border-t-[3px] border-t-alert"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
