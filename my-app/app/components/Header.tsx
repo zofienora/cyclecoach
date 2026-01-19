@@ -19,7 +19,7 @@ export default function Header() {
     <header className="flex flex-col items-center px-4 pt-4 mx-auto gap-4 h-screen lg:h-auto w-full">
       {/* 1. CycleCoach title - bigger on laptop */}
       <div className="flex flex-col items-center w-full">
-        <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold font-heading text-secondary text-center pb-18 py-8 lg:py-6">
+        <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold font-heading text-secondary text-center pb-18 py-8 lg:py-6 lg:pb-16">
           CycleCoach
         </h1>
       </div>
