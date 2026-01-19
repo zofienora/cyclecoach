@@ -75,9 +75,9 @@ export default function Header() {
         </button>
       </div>
 
-      {/* 3. Hello headline - bigger on laptop */}
-      <div className="flex flex-col items-center w-full mt-16 lg:mt-0">
-        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl lg:text-5xl pt-0 lg:pt-4 lg:pb-6">
+      {/* 3. Hello headline - mobile only (between inputs and cycle) */}
+      <div className="flex lg:hidden flex-col items-center w-full mt-16">
+        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
@@ -129,9 +129,9 @@ export default function Header() {
           {/* Update button */}
           <button
             onClick={handleUpdateDay}
-            className="bg-primary text-white text-sm px-4 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
+            className="bg-primary text-white text-sm px-8 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
           >
-            Update Day
+            Update
           </button>
         </div>
 
@@ -195,6 +195,13 @@ export default function Header() {
           </div>
         );
       })()}
+      </div>
+
+      {/* 5. Hello headline - desktop only (below flexbox / button) */}
+      <div className="hidden lg:flex flex-col items-center w-full pt-8 pb-4">
+        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl lg:text-5xl">
+          Hello, {userData?.name || "there"} 👋
+        </h2>
       </div>
     </header>
   );
