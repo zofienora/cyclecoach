@@ -71,7 +71,7 @@ export default function Header() {
           onClick={handleUpdateDay}
           className="bg-primary text-white text-sm px-8 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full mb-6"
         >
-          Update Day
+          Update
         </button>
       </div>
 
