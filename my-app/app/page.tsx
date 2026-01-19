@@ -7,7 +7,6 @@ export default function Home() {
     <main className="w-[90%] max-w-xl lg:max-w-6xl mx-auto px-4">
       <Header />
       <PhaseTracker />
-      {/* More components like PhaseTracker will come next */}
       <Suggestions />
     </main>
   );

@@ -20,7 +20,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "CycleCoach",
-  description: "Dein smarter Begleiter für zyklusbasiertes Training & Ernährung",
+  description: "Your smart companion for cycle-based training and nutrition",
 };
 
 export default function RootLayout({
