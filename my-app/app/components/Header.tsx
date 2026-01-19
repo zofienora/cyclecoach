@@ -33,7 +33,7 @@ export default function Header() {
             placeholder="Enter your name"
             value={userData?.name || ""}
             onChange={(e) => updateUserName(e.target.value)}
-            className="w-full px-3 py-2 text-base border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
           />
         </div>
 
@@ -46,30 +46,30 @@ export default function Header() {
             onChange={(e) => setDayInput(e.target.value)}
             min="1"
             max={userData?.cycleLength || 35}
-            className="w-full px-3 py-2 text-base border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
           />
         </div>
 
         {/* Cycle length input */}
         {userData && (
           <div className="flex gap-2 items-center w-full">
-            <label className="text-xs text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
+            <label className="text-body text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
             <input
               type="number"
               value={userData.cycleLength}
               onChange={(e) => updateCycleLength(parseInt(e.target.value, 10))}
               min="21"
               max="35"
-              className="px-3 py-2 text-base border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20"
+              className="px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20"
             />
-            <span className="text-xs text-foreground">days</span>
+            <span className="text-body text-foreground">days</span>
           </div>
         )}
 
         {/* Update button */}
         <button
           onClick={handleUpdateDay}
-          className="bg-primary text-white text-sm px-8 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full mb-6"
+          className="bg-primary text-white text-body px-8 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full mb-6"
         >
           Update
         </button>
@@ -77,7 +77,7 @@ export default function Header() {
 
       {/* 3. Hello headline - mobile only (between inputs and cycle) */}
       <div className="flex lg:hidden flex-col items-center w-full mt-16">
-        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl">
+        <h2 className="text-headline text-foreground text-center">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
@@ -93,7 +93,7 @@ export default function Header() {
               placeholder="Enter your name"
               value={userData?.name || ""}
               onChange={(e) => updateUserName(e.target.value)}
-              className="w-full px-3 py-2 text-base border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
             />
           </div>
 
@@ -106,30 +106,30 @@ export default function Header() {
               onChange={(e) => setDayInput(e.target.value)}
               min="1"
               max={userData?.cycleLength || 35}
-              className="w-full px-3 py-2 text-base border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
             />
           </div>
 
           {/* Cycle length input */}
           {userData && (
             <div className="flex gap-2 items-center w-full">
-              <label className="text-xs text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
+              <label className="text-body text-foreground font-medium whitespace-nowrap">Cycle Length:</label>
               <input
                 type="number"
                 value={userData.cycleLength}
                 onChange={(e) => updateCycleLength(parseInt(e.target.value, 10))}
                 min="21"
                 max="35"
-                className="px-3 py-2 text-base border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20"
+                className="px-3 py-2 text-body border-2 border-primary rounded-full bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-20"
               />
-              <span className="text-xs text-foreground">days</span>
+              <span className="text-body text-foreground">days</span>
             </div>
           )}
 
           {/* Update button */}
           <button
             onClick={handleUpdateDay}
-            className="bg-primary text-white text-sm px-8 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
+            className="bg-primary text-white text-body px-8 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md w-full"
           >
             Update
           </button>
@@ -161,7 +161,7 @@ export default function Header() {
         return (
           <div className="mt-4 lg:mt-0 flex flex-col items-center gap-8 lg:flex-1 lg:justify-center">
             {/* Headline */}
-            <h3 className="text-lg sm:text-xl lg:text-3xl font-heading text-foreground text-center">
+            <h3 className="text-headline text-foreground text-center">
               Where you are in your cycle:
             </h3>
             
@@ -199,7 +199,7 @@ export default function Header() {
 
       {/* 5. Hello headline - desktop only (below flexbox / button) */}
       <div className="hidden lg:flex flex-col items-center w-full pt-32 pb-4">
-        <h2 className="font-heading text-foreground text-center text-2xl sm:text-3xl lg:text-5xl">
+        <h2 className="text-headline text-foreground text-center">
           Hello, {userData?.name || "there"} 👋
         </h2>
       </div>
